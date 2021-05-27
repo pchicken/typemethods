@@ -3,7 +3,7 @@ import macros
 macro typemethod*(t: typedesc, fn: untyped): untyped =
     fn.expectKind nnkProcDef
     result = fn
-    let typeParaem = nnkIdentDefs.newTree(
+    let typeParam = nnkIdentDefs.newTree(
         ident("TYPEMETHOD_TYPE"),
         nnkBracketExpr.newTree(
             ident("typedesc"),
@@ -11,4 +11,4 @@ macro typemethod*(t: typedesc, fn: untyped): untyped =
         ),
         newEmptyNode(),
     )
-    result[3].insert(1, t)
+    result[3].insert(1, typeParam)
