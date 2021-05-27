@@ -11,4 +11,4 @@ macro typemethod*(t: typedesc, fn: untyped): untyped =
         ),
         newEmptyNode(),
     )
-    result[3].insert(1, typeParam)
+    result[3].insert(1, t)
